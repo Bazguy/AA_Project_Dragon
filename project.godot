@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="AA_Project_Dragon"
+run/main_scene="uid://cp2j6lmogwj2x"
 config/features=PackedStringArray("4.6", "Mobile")
 config/icon="res://icon.svg"
 
@@ -26,3 +27,4 @@ project/assembly_name="AA_Project_Dragon"
 
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

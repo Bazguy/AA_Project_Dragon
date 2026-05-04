@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cp2j6lmogwj2x"]
+
+[ext_resource type="PackedScene" uid="uid://cj3n5jhd02fdl" path="res://assets/dragonAttempt.fbx" id="1_iwpey"]
+
+[sub_resource type="Environment" id="Environment_iwpey"]
+background_mode = 5
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_g4qto"]
+
+[sub_resource type="Compositor" id="Compositor_hr5et"]
+
+[node name="Node3D" type="Node3D" unique_id=1462068961]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=496497803]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8549781)
+environment = SubResource("Environment_iwpey")
+attributes = SubResource("CameraAttributesPractical_g4qto")
+compositor = SubResource("Compositor_hr5et")
+
+[node name="dragonAttempt" parent="." unique_id=2055428591 instance=ExtResource("1_iwpey")]
+transform = Transform3D(0.22639632, 0, 0.97403526, 0, 1, 0, -0.97403526, 0, 0.22639632, 0, 0, -8.355698)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=171836297]
