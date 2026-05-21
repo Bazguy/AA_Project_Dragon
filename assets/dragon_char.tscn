@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://l5qtcgbjoujp"]
+
+[ext_resource type="PackedScene" uid="uid://dgsu1mibf3erv" path="res://assets/dragonChar.fbx" id="1_lkyim"]
+[ext_resource type="Texture2D" uid="uid://dfsys26sphvnl" path="res://assets/dragonChar_0.png" id="2_lr15e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir3rh"]
+albedo_texture = ExtResource("2_lr15e")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5sqw"]
+albedo_texture = ExtResource("2_lr15e")
+
+[node name="dragonChar" unique_id=860851623 instance=ExtResource("1_lkyim")]
+
+[node name="mouth" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="0" unique_id=1580720589]
+transform = Transform3D(1, 0, 0, 0, 0.6755902, -0.7372773, 0, 0.7372773, 0.6755902, 0, 0.125, -0.3125)
+
+[node name="tooth" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="5" unique_id=1745200508]
+surface_material_override/0 = SubResource("StandardMaterial3D_ir3rh")
+
+[node name="tooth2" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="6" unique_id=1084561358]
+surface_material_override/0 = SubResource("StandardMaterial3D_s5sqw")

@@ -19,6 +19,13 @@ config/icon="res://icon.svg"
 
 project/assembly_name="AA_Project_Dragon"
 
+[input_devices]
+
+sensors/enable_accelerometer=true
+sensors/enable_gravity=true
+sensors/enable_gyroscope=true
+sensors/enable_magnetometer=true
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
@@ -28,3 +35,7 @@ project/assembly_name="AA_Project_Dragon"
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
+
+[xr]
+
+shaders/enabled=true

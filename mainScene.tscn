@@ -1,23 +1,21 @@
 [gd_scene format=3 uid="uid://cp2j6lmogwj2x"]
 
-[ext_resource type="PackedScene" uid="uid://cj3n5jhd02fdl" path="res://assets/dragonAttempt.fbx" id="1_iwpey"]
-
-[sub_resource type="Environment" id="Environment_iwpey"]
-background_mode = 5
+[ext_resource type="Environment" uid="uid://b7mbvepk48teq" path="res://assets/cameraEnvironment.tres" id="1_hr5et"]
+[ext_resource type="Script" uid="uid://cq4yxma6woqw8" path="res://camera_3d.gd" id="2_g4qto"]
+[ext_resource type="PackedScene" uid="uid://dgsu1mibf3erv" path="res://assets/dragonChar.fbx" id="2_hr5et"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_g4qto"]
 
-[sub_resource type="Compositor" id="Compositor_hr5et"]
-
 [node name="Node3D" type="Node3D" unique_id=1462068961]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=496497803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.8549781)
-environment = SubResource("Environment_iwpey")
-attributes = SubResource("CameraAttributesPractical_g4qto")
-compositor = SubResource("Compositor_hr5et")
-
-[node name="dragonAttempt" parent="." unique_id=2055428591 instance=ExtResource("1_iwpey")]
-transform = Transform3D(0.22639632, 0, 0.97403526, 0, 1, 0, -0.97403526, 0, 0.22639632, 0, 0, -8.355698)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=171836297]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=55307419]
+transform = Transform3D(0.93913025, 0, 0.34356135, -0.08941244, 0.96554077, 0.2444103, -0.3317225, -0.26025176, 0.90676856, 4.7715755, 3.6961348, 3.4721246)
+environment = ExtResource("1_hr5et")
+attributes = SubResource("CameraAttributesPractical_g4qto")
+script = ExtResource("2_g4qto")
+env = ExtResource("1_hr5et")
+
+[node name="dragonChar" parent="." unique_id=860851623 instance=ExtResource("2_hr5et")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15575281, 0, -10.31332)

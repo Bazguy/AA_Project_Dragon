@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cj3n5jhd02fdl"
-path="res://.godot/imported/dragonAttempt.fbx-969f52db9ec2b5dbab9f1b1886a67295.scn"
+uid="uid://dgsu1mibf3erv"
+path="res://.godot/imported/dragonChar.fbx-b6a01e74fed4a25ff930633290d197bb.scn"
 
 [deps]
 
-source_file="res://assets/dragonAttempt.fbx"
-dest_files=["res://.godot/imported/dragonAttempt.fbx-969f52db9ec2b5dbab9f1b1886a67295.scn"]
+source_file="res://assets/dragonChar.fbx"
+dest_files=["res://.godot/imported/dragonChar.fbx-b6a01e74fed4a25ff930633290d197bb.scn"]
 
 [params]
 
