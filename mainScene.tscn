@@ -1254,18 +1254,42 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tdys4")
 
-[sub_resource type="Animation" id="Animation_vuu3o"]
-resource_name = "mouthOpen"
+[sub_resource type="Animation" id="Animation_0pyiw"]
+length = 0.001
 tracks/0/type = "rotation_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("dragon_boid/head/head/mouth")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_14l1l"]
+resource_name = "mouthClose"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragon_boid/head/head/mouth")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.403, 0, 0, 0.915, 0.5, 1, 0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_vuu3o"]
+resource_name = "mouthOpen"
+length = 0.5
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragon_boid/head/head/mouth")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1, 0.5, 1, 0.399, 0, 0, 0.917)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0pyiw"]
 _data = {
+&"RESET": SubResource("Animation_0pyiw"),
+&"mouthClose": SubResource("Animation_14l1l"),
 &"mouthOpen": SubResource("Animation_vuu3o")
 }
 
