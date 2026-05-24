@@ -1,5 +1,13 @@
 [gd_scene format=3 uid="uid://fuyoldum1hiv"]
 
 [ext_resource type="PackedScene" uid="uid://dgsu1mibf3erv" path="res://assets/dragonChar.fbx" id="1_1ro53"]
+[ext_resource type="Script" uid="uid://cv7glg5l7wbd5" path="res://boid.gd" id="2_lvus7"]
+[ext_resource type="Script" uid="uid://c6qcl13ediy0a" path="res://seek.gd" id="3_foa7n"]
 
 [node name="dragonChar" unique_id=860851623 instance=ExtResource("1_1ro53")]
+
+[node name="head" parent="Dragon" parent_id_path=PackedInt32Array(491301042) index="0" unique_id=1678448473]
+script = ExtResource("2_lvus7")
+
+[node name="Node" type="Node" parent="Dragon/head" index="7" unique_id=244401104]
+script = ExtResource("3_foa7n")

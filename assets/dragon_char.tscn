@@ -1,21 +1,21 @@
 [gd_scene format=3 uid="uid://l5qtcgbjoujp"]
 
 [ext_resource type="PackedScene" uid="uid://dgsu1mibf3erv" path="res://assets/dragonChar.fbx" id="1_lkyim"]
-[ext_resource type="Texture2D" uid="uid://dfsys26sphvnl" path="res://assets/dragonChar_0.png" id="2_lr15e"]
+[ext_resource type="Script" uid="uid://cv7glg5l7wbd5" path="res://boid.gd" id="2_lr15e"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ir3rh"]
-albedo_texture = ExtResource("2_lr15e")
+[node name="dragonChar" unique_id=2026423991 instance=ExtResource("1_lkyim")]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s5sqw"]
-albedo_texture = ExtResource("2_lr15e")
+[node name="head" parent="Dragon" parent_id_path=PackedInt32Array(1590114493) index="0" unique_id=2002535667]
+script = ExtResource("2_lr15e")
 
-[node name="dragonChar" unique_id=860851623 instance=ExtResource("1_lkyim")]
+[node name="rightArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(46844927) index="0" unique_id=260044886]
+transform = Transform3D(1, 0, 0, 0, 0.5372996, -0.8433915, 0, 0.8433915, 0.5372996, -0.9375, -0.5625, -0.4375)
 
-[node name="mouth" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="0" unique_id=1580720589]
-transform = Transform3D(1, 0, 0, 0, 0.6755902, -0.7372773, 0, 0.7372773, 0.6755902, 0, 0.125, -0.3125)
+[node name="leftArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(46844927) index="1" unique_id=2010778325]
+transform = Transform3D(1, 0, 0, 0, 0.81915194, 0.57357633, 0, -0.57357633, 0.81915194, 0.9375, -0.5625, -0.4375)
 
-[node name="tooth" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="5" unique_id=1745200508]
-surface_material_override/0 = SubResource("StandardMaterial3D_ir3rh")
+[node name="leftLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(1221624236) index="0" unique_id=16979819]
+transform = Transform3D(1, 0, 0, 0, 0.5372996, -0.8433915, 0, 0.8433915, 0.5372996, 0.875, -0.6, -5.3125)
 
-[node name="tooth2" parent="Dragon/head" parent_id_path=PackedInt32Array(1678448473) index="6" unique_id=1084561358]
-surface_material_override/0 = SubResource("StandardMaterial3D_s5sqw")
+[node name="rightLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(1221624236) index="1" unique_id=752312176]
+transform = Transform3D(1, 0, 0, 0, 0.81915194, 0.57357633, 0, -0.57357633, 0.81915194, -0.875, -0.6, -5.3125)
