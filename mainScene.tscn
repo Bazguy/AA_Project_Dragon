@@ -1254,6 +1254,21 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_tdys4")
 
+[sub_resource type="Animation" id="Animation_vuu3o"]
+resource_name = "mouthOpen"
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("dragon_boid/head/head/mouth")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pyiw"]
+_data = {
+&"mouthOpen": SubResource("Animation_vuu3o")
+}
+
 [node name="Node3D" type="Node3D" unique_id=1462068961]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=171836297]
@@ -1289,7 +1304,7 @@ metadata/_custom_type_script = "uid://cv7glg5l7wbd5"
 [node name="head" type="Node3D" parent="dragon_boid/head" unique_id=1096370881]
 
 [node name="mouth" type="Node3D" parent="dragon_boid/head/head" unique_id=606669042]
-transform = Transform3D(1, 0, 0, 0, 0.6755902, -0.7372773, 0, 0.7372773, 0.6755902, 0, 0.125, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.3125)
 
 [node name="jaw" type="MeshInstance3D" parent="dragon_boid/head/head/mouth" unique_id=1141407537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.0625)
@@ -1494,6 +1509,10 @@ mesh = SubResource("ArrayMesh_56w16")
 [node name="cuboid_2" type="MeshInstance3D" parent="dragon_boid/tail/tail" unique_id=55447826]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, -1.5)
 mesh = SubResource("ArrayMesh_shftk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="dragon_boid" unique_id=486194004]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_0pyiw")
 
 [node name="DefaultTarget" type="Marker3D" parent="." unique_id=1711263008]
 script = ExtResource("4_61od6")

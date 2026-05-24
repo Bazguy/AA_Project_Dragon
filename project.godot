@@ -75,4 +75,9 @@ textures/vram_compression/import_etc2_astc=true
 
 [xr]
 
+openxr/enabled=true
+openxr/form_factor=1
+openxr/reference_space=0
+openxr/environment_blend_mode=1
+openxr/extensions/debug_utils=3
 shaders/enabled=true
