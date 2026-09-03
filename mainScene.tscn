@@ -1324,9 +1324,10 @@ max_force = 30
 metadata/_custom_type_script = "uid://cv7glg5l7wbd5"
 
 [node name="head" type="Node3D" parent="dragon_boid/head" unique_id=1096370881]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
 
 [node name="mouth" type="Node3D" parent="dragon_boid/head/head" unique_id=606669042]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2, -0.312)
 
 [node name="jaw" type="MeshInstance3D" parent="dragon_boid/head/head/mouth" unique_id=1141407537]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0625)
@@ -1345,23 +1346,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.375)
 mesh = SubResource("ArrayMesh_466gm")
 
 [node name="upperHead" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=1301418552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, -0.125)
 mesh = SubResource("ArrayMesh_auxaw")
 
 [node name="rightHorn" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=923384626]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3125, 0, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312, 0.8, -0.312)
 mesh = SubResource("ArrayMesh_smdy7")
 
 [node name="leftHorn" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=2132988647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3125, 0, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.313, 0.8, -0.312)
 mesh = SubResource("ArrayMesh_6qrj0")
 
 [node name="tooth" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=404304099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 1.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.3, 1.188)
 mesh = SubResource("ArrayMesh_tlk23")
 
 [node name="tooth2" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=815318347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0, 1.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, -0.3, 1.188)
 mesh = SubResource("ArrayMesh_6k62e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/head" unique_id=1650030655]
@@ -1508,7 +1509,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 mesh = SubResource("ArrayMesh_1njc4")
 
 [node name="tail" type="CharacterBody3D" parent="dragon_boid" unique_id=1399490074]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, -8.5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/tail" unique_id=1604153530]
 shape = SubResource("BoxShape3D_ooq8s")
