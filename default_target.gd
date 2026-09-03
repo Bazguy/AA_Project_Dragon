@@ -9,7 +9,7 @@ extends Marker3D
 var origPos:Vector3
 
 func moveTarget():
-	var new_target = Vector3(randf_range(-100, 100), randf_range(-40, 40), randf_range(-100, 100))
+	var new_target = Vector3(randf_range(-30, 30), randf_range(20, 80), randf_range(-30, 30))
 	global_transform.origin = new_target
 	
 	print("position change!", global_transform.origin)

@@ -9,5 +9,4 @@ sky_material = SubResource("ProceduralSkyMaterial_d7wsv")
 
 [resource]
 background_mode = 2
-background_camera_feed_id = 3
 sky = SubResource("Sky_nguat")

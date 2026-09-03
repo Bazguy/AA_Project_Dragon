@@ -1,16 +1,14 @@
 [gd_scene format=4 uid="uid://cp2j6lmogwj2x"]
 
+[ext_resource type="Script" uid="uid://dcnbw0vu21t8f" path="res://lightontarget.gd" id="1_0pyiw"]
 [ext_resource type="Environment" uid="uid://b7mbvepk48teq" path="res://assets/cameraEnvironment.tres" id="1_hr5et"]
-[ext_resource type="Script" uid="uid://cq4yxma6woqw8" path="res://camera_3d.gd" id="2_g4qto"]
+[ext_resource type="Script" uid="uid://dogfgeo2apyvj" path="res://assets/scripts/gyroscope_camera.gd" id="2_bnlnp"]
 [ext_resource type="Script" uid="uid://fofob4sjrfkw" path="res://default_target.gd" id="4_61od6"]
 [ext_resource type="Script" uid="uid://y1xxcpqyxs5u" path="res://spineanimator.gd" id="4_vuu3o"]
 [ext_resource type="Script" uid="uid://cv7glg5l7wbd5" path="res://boid.gd" id="5_0pyiw"]
-[ext_resource type="Script" uid="uid://c7udn48jdh1tw" path="res://firstpersonplayer.gd" id="5_6mfv6"]
 [ext_resource type="Texture2D" uid="uid://dfsys26sphvnl" path="res://assets/dragonChar_0.png" id="6_14l1l"]
 [ext_resource type="Texture2D" uid="uid://dxlo553n72p76" path="res://assets/dragonChar_1.png" id="7_u7har"]
 [ext_resource type="Script" uid="uid://c6qcl13ediy0a" path="res://seek.gd" id="8_uqts1"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6mfv6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qqqv"]
 
@@ -1293,19 +1291,20 @@ _data = {
 &"mouthOpen": SubResource("Animation_vuu3o")
 }
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_vuu3o"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pyiw"]
+albedo_color = Color(0.16470589, 0.7137255, 0.23921569, 1)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6mfv6"]
+
 [node name="Node3D" type="Node3D" unique_id=1462068961]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=171836297]
+script = ExtResource("1_0pyiw")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1228899385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 39.091267, 85.474045)
-script = ExtResource("5_6mfv6")
-
-[node name="Camera3D" type="Camera3D" parent="player" unique_id=124317916]
-environment = ExtResource("1_hr5et")
-attributes = SubResource("CameraAttributesPractical_6mfv6")
-script = ExtResource("2_g4qto")
-env = ExtResource("1_hr5et")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.31696, 15.333897)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=152170140]
 shape = SubResource("CapsuleShape3D_2qqqv")
@@ -1320,9 +1319,8 @@ bones = [NodePath("../head"), NodePath("../torso1"), NodePath("../torso2"), Node
 [node name="head" type="CharacterBody3D" parent="dragon_boid" unique_id=668557174]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.019, 2.75)
 script = ExtResource("5_0pyiw")
-speed = 25.0
-max_speed = 100.0
-max_force = 100
+speed = 5.0
+max_force = 30
 metadata/_custom_type_script = "uid://cv7glg5l7wbd5"
 
 [node name="head" type="Node3D" parent="dragon_boid/head" unique_id=1096370881]
@@ -1331,43 +1329,42 @@ metadata/_custom_type_script = "uid://cv7glg5l7wbd5"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, -0.3125)
 
 [node name="jaw" type="MeshInstance3D" parent="dragon_boid/head/head/mouth" unique_id=1141407537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.0625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0625)
 mesh = SubResource("ArrayMesh_us837")
 
 [node name="jaw_1" type="MeshInstance3D" parent="dragon_boid/head/head/mouth" unique_id=125201540]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0.875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.875)
 mesh = SubResource("ArrayMesh_ykwv5")
 
 [node name="jaw_2" type="MeshInstance3D" parent="dragon_boid/head/head/mouth" unique_id=534205394]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 mesh = SubResource("ArrayMesh_nlk40")
 
 [node name="lowerHead" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=302430156]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.125, 0.375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.375)
 mesh = SubResource("ArrayMesh_466gm")
 
 [node name="upperHead" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=1301418552]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5625, -0.125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.125)
 mesh = SubResource("ArrayMesh_auxaw")
 
 [node name="rightHorn" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=923384626]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3125, 1, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3125, 0, -0.3125)
 mesh = SubResource("ArrayMesh_smdy7")
 
 [node name="leftHorn" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=2132988647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3125, 1, -0.3125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3125, 0, -0.3125)
 mesh = SubResource("ArrayMesh_6qrj0")
 
 [node name="tooth" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=404304099]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, -0.1875, 1.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.375, 0, 1.1875)
 mesh = SubResource("ArrayMesh_tlk23")
 
 [node name="tooth2" type="MeshInstance3D" parent="dragon_boid/head/head" unique_id=815318347]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, -0.1875, 1.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.375, 0, 1.1875)
 mesh = SubResource("ArrayMesh_6k62e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/head" unique_id=1650030655]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.465, 0)
 shape = SubResource("BoxShape3D_kpsh6")
 
 [node name="seek" type="Node" parent="dragon_boid/head" unique_id=1140947167 node_paths=PackedStringArray("target")]
@@ -1377,7 +1374,6 @@ target = NodePath("../../../DefaultTarget")
 [node name="torso1" type="CharacterBody3D" parent="dragon_boid" unique_id=462418827]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/torso1" unique_id=465723270]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.191, 0)
 shape = SubResource("BoxShape3D_3qdnn")
 
 [node name="torso" type="Node3D" parent="dragon_boid/torso1" unique_id=1005888815]
@@ -1393,19 +1389,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0, -7.75)
 mesh = SubResource("ArrayMesh_s7pqw")
 
 [node name="cube_11" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/rightArm" unique_id=546888770]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, -0.5625, -7.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0, -7.4375)
 mesh = SubResource("ArrayMesh_251pa")
 
 [node name="cube_12" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/rightArm" unique_id=1545973450]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, -0.5625, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0, -6.4375)
 mesh = SubResource("ArrayMesh_vg2gt")
 
 [node name="cube_13" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/rightArm" unique_id=1377537205]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, -0.75, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0, -6.4375)
 mesh = SubResource("ArrayMesh_1uw5o")
 
 [node name="cube_14" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/rightArm" unique_id=1785391774]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.75, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -6.4375)
 mesh = SubResource("ArrayMesh_efo4c")
 
 [node name="leftArm" type="Node3D" parent="dragon_boid/torso1/torso/arms" unique_id=1371320542]
@@ -1416,38 +1412,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -7.75)
 mesh = SubResource("ArrayMesh_wsq5h")
 
 [node name="cube_15" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/leftArm" unique_id=987133101]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.75, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0, -6.4375)
 mesh = SubResource("ArrayMesh_w17v0")
 
 [node name="cube_16" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/leftArm" unique_id=753213532]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, -0.5625, -7.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 0, -7.4375)
 mesh = SubResource("ArrayMesh_nj2vb")
 
 [node name="cube_17" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/leftArm" unique_id=345460256]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -0.5625, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0, -6.4375)
 mesh = SubResource("ArrayMesh_ueo7l")
 
 [node name="cube_18" type="MeshInstance3D" parent="dragon_boid/torso1/torso/arms/leftArm" unique_id=1415234459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -0.75, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0, -6.4375)
 mesh = SubResource("ArrayMesh_vgsjf")
 
 [node name="seg1" type="MeshInstance3D" parent="dragon_boid/torso1/torso" unique_id=1588424835]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, 1.1875)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.1875)
 mesh = SubResource("ArrayMesh_3qqaw")
 
 [node name="seg2" type="MeshInstance3D" parent="dragon_boid/torso1/torso" unique_id=1070300422]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, -0.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4375)
 mesh = SubResource("ArrayMesh_cn68p")
 
 [node name="seg3" type="MeshInstance3D" parent="dragon_boid/torso1/torso" unique_id=848096947]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, -2.0625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.0625)
 mesh = SubResource("ArrayMesh_x1ket")
 
 [node name="torso2" type="CharacterBody3D" parent="dragon_boid" unique_id=954169360]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/torso2" unique_id=1685455309]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.197, 0)
 shape = SubResource("BoxShape3D_884pp")
 
 [node name="torso2" type="Node3D" parent="dragon_boid/torso2" unique_id=984444382]
@@ -1459,79 +1454,77 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.563, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875, -0.6, 0)
 
 [node name="cube" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/leftLeg" unique_id=708445809]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 0.02250625, -7.7687073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0625, 0, -7.7687073)
 mesh = SubResource("ArrayMesh_qi8ak")
 
 [node name="cube_2" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/leftLeg" unique_id=1115074736]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.53999376, -7.4562073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.4562073)
 mesh = SubResource("ArrayMesh_wwjen")
 
 [node name="cube_3" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/leftLeg" unique_id=1476492344]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.53999376, -6.4562073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -6.4562073)
 mesh = SubResource("ArrayMesh_birxv")
 
 [node name="cube_4" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/leftLeg" unique_id=1031967290]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, -0.72749376, -6.4562073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1875, 0, -6.4562073)
 mesh = SubResource("ArrayMesh_24iee")
 
 [node name="cube_19" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/leftLeg" unique_id=61343342]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, -0.72749376, -6.4562073)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.125, 0, -6.4562073)
 mesh = SubResource("ArrayMesh_jhpvh")
 
 [node name="rightLeg" type="Node3D" parent="dragon_boid/torso2/torso2/legs" unique_id=1289808571]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.875, -0.6, 0)
 
 [node name="cube_1" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/rightLeg" unique_id=771474998]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0.0375, -7.75)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0625, 0, -7.75)
 mesh = SubResource("ArrayMesh_taipy")
 
 [node name="cube_5" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/rightLeg" unique_id=1887823689]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, -0.7125, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1875, 0, -6.4375)
 mesh = SubResource("ArrayMesh_6icc7")
 
 [node name="cube_6" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/rightLeg" unique_id=1597341545]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.525, -7.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.4375)
 mesh = SubResource("ArrayMesh_umoll")
 
 [node name="cube_7" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/rightLeg" unique_id=1033527448]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.525, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0, -6.4375)
 mesh = SubResource("ArrayMesh_8n0br")
 
 [node name="cube_8" type="MeshInstance3D" parent="dragon_boid/torso2/torso2/legs/rightLeg" unique_id=807045566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, -0.7125, -6.4375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.125, 0, -6.4375)
 mesh = SubResource("ArrayMesh_5q1la")
 
 [node name="seg1_1" type="MeshInstance3D" parent="dragon_boid/torso2/torso2" unique_id=516973454]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.5)
 mesh = SubResource("ArrayMesh_d6u2s")
 
 [node name="seg2_1" type="MeshInstance3D" parent="dragon_boid/torso2/torso2" unique_id=605239816]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, 0)
 mesh = SubResource("ArrayMesh_cgime")
 
 [node name="seg3_1" type="MeshInstance3D" parent="dragon_boid/torso2/torso2" unique_id=466807142]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.625, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 mesh = SubResource("ArrayMesh_1njc4")
 
 [node name="tail" type="CharacterBody3D" parent="dragon_boid" unique_id=1399490074]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/tail" unique_id=1604153530]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.219, 0)
 shape = SubResource("BoxShape3D_ooq8s")
 
 [node name="tail" type="Node3D" parent="dragon_boid/tail" unique_id=841521196]
 
 [node name="cuboid" type="MeshInstance3D" parent="dragon_boid/tail/tail" unique_id=747488056]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, 0.375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.375)
 mesh = SubResource("ArrayMesh_rb13h")
 
 [node name="cuboid_1" type="MeshInstance3D" parent="dragon_boid/tail/tail" unique_id=487482723]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, -1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
 mesh = SubResource("ArrayMesh_56w16")
 
 [node name="cuboid_2" type="MeshInstance3D" parent="dragon_boid/tail/tail" unique_id=55447826]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0625, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.5)
 mesh = SubResource("ArrayMesh_shftk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="dragon_boid" unique_id=486194004]
@@ -1544,5 +1537,19 @@ script = ExtResource("4_61od6")
 [node name="Timer" type="Timer" parent="DefaultTarget" unique_id=1303985965]
 wait_time = 7.0
 autostart = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=653963691]
+transform = Transform3D(1000, 0, 0, 0, 100.691, 0, 0, 0, 676.74835, 0, 0, 0)
+mesh = SubResource("PlaneMesh_vuu3o")
+surface_material_override/0 = SubResource("StandardMaterial3D_0pyiw")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=124317916 node_paths=PackedStringArray("cam")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
+environment = ExtResource("1_hr5et")
+attributes = SubResource("CameraAttributesPractical_6mfv6")
+script = ExtResource("2_bnlnp")
+cam = NodePath(".")
+
+[node name="Node" type="Node" parent="Camera3D" unique_id=1750405920]
 
 [connection signal="timeout" from="DefaultTarget/Timer" to="DefaultTarget" method="_on_timer_timeout"]

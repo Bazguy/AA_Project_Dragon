@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://rfo6xmvmjm7x"
-path="res://.godot/imported/CardboardVRCamera3D.svg-ff2b3232d17ab95ee0145c653fd06860.ctex"
+uid="uid://ck6xlo1k4r00o"
+path="res://.godot/imported/icon.png-66ea5f76ce48f806805dd6f7cd92a459.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/cardboard_vr/icons/CardboardVRCamera3D.svg"
-dest_files=["res://.godot/imported/CardboardVRCamera3D.svg-ff2b3232d17ab95ee0145c653fd06860.ctex"]
+source_file="res://addons/NativeCameraPlugin/icon.png"
+dest_files=["res://.godot/imported/icon.png-66ea5f76ce48f806805dd6f7cd92a459.ctex"]
 
 [params]
 
@@ -38,6 +38,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

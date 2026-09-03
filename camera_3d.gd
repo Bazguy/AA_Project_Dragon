@@ -1,4 +1,4 @@
-extends Camera3D
+extends Node
 
 @export var env: Environment
 var camera: CameraFeed
