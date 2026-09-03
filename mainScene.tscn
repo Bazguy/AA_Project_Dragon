@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://cp2j6lmogwj2x"]
 
-[ext_resource type="Script" uid="uid://dcnbw0vu21t8f" path="res://lightontarget.gd" id="1_0pyiw"]
 [ext_resource type="Environment" uid="uid://b7mbvepk48teq" path="res://assets/cameraEnvironment.tres" id="1_hr5et"]
 [ext_resource type="Script" uid="uid://dogfgeo2apyvj" path="res://assets/scripts/gyroscope_camera.gd" id="2_bnlnp"]
 [ext_resource type="Script" uid="uid://fofob4sjrfkw" path="res://default_target.gd" id="4_61od6"]
@@ -16,6 +15,20 @@
 [ext_resource type="AudioStream" uid="uid://dpkm8omlfivwc" path="res://dragon-studio-dragon-growl-364483.mp3" id="13_us837"]
 [ext_resource type="Script" uid="uid://cy765lexeqwfc" path="res://dragroar.gd" id="14_ykwv5"]
 [ext_resource type="AudioStream" uid="uid://dbw6dxbavi4kg" path="res://universfield-slime-impact-352473.mp3" id="15_nlk40"]
+
+[sub_resource type="GDScript" id="GDScript_ykwv5"]
+script/source = "extends OmniLight3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qqqv"]
 
@@ -1326,7 +1339,7 @@ light_size = 0.174
 light_specular = 4.724
 omni_range = 4096.0
 omni_attenuation = 0.3
-script = ExtResource("1_0pyiw")
+script = SubResource("GDScript_ykwv5")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1228899385]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32.31696, 15.333897)
