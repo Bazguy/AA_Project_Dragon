@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dfsys26sphvnl" path="res://assets/dragonChar_0.png" id="6_14l1l"]
 [ext_resource type="Texture2D" uid="uid://dxlo553n72p76" path="res://assets/dragonChar_1.png" id="7_u7har"]
 [ext_resource type="Script" uid="uid://c6qcl13ediy0a" path="res://seek.gd" id="8_uqts1"]
+[ext_resource type="PackedScene" uid="uid://cdchtu2judjd0" path="res://assets/Sheeeep.fbx" id="10_0pyiw"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qqqv"]
 
@@ -1552,5 +1553,8 @@ script = ExtResource("2_bnlnp")
 cam = NodePath(".")
 
 [node name="Node" type="Node" parent="Camera3D" unique_id=1750405920]
+
+[node name="Sheeeep" parent="." unique_id=2010260547 instance=ExtResource("10_0pyiw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.921817, 0, 1.7030599)
 
 [connection signal="timeout" from="DefaultTarget/Timer" to="DefaultTarget" method="_on_timer_timeout"]

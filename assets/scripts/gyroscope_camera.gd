@@ -69,7 +69,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func mouseCam(delta):
-	print("pc detected!")
+	
 	var current_q = basis.get_rotation_quaternion()
 	var twist_q = Quaternion(Vector3.UP, deg_to_rad(twist_input))
 	var pitch_q = Quaternion(Vector3.RIGHT, deg_to_rad(pitch_input))
