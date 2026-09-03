@@ -9,7 +9,7 @@ extends Marker3D
 var origPos:Vector3
 
 func moveTarget():
-	var new_target = Vector3(randf_range(-30, 30), randf_range(20, 80), randf_range(-30, 30))
+	var new_target = Vector3(randf_range(-15, 15), randf_range(20, 60), randf_range(-15, 15))
 	global_transform.origin = new_target
 	
 	print("position change!", global_transform.origin)
@@ -27,4 +27,11 @@ func _on_Timer_timeout():
 
 func _on_timer_timeout() -> void:
 	moveTarget()
+	pass # Replace with function body.
+
+
+func _on_area_3d_area_entered(area: Area3D) -> void:
+	if(area.is_in_group("boidDragon")):
+		moveTarget()
+	
 	pass # Replace with function body.

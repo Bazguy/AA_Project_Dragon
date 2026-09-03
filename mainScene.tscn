@@ -316,6 +316,9 @@ shadow_mesh = SubResource("ArrayMesh_xqm04")
 [sub_resource type="BoxShape3D" id="BoxShape3D_kpsh6"]
 size = Vector3(1, 1.1584473, 2.0524902)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_14l1l"]
+radius = 5.0
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3qdnn"]
 size = Vector3(1, 0.61816406, 4.255371)
 
@@ -1292,6 +1295,9 @@ _data = {
 &"mouthOpen": SubResource("Animation_vuu3o")
 }
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_0pyiw"]
+radius = 8.0
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_vuu3o"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0pyiw"]
@@ -1302,6 +1308,12 @@ albedo_color = Color(0.16470589, 0.7137255, 0.23921569, 1)
 [node name="Node3D" type="Node3D" unique_id=1462068961]
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=171836297]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -221.84868, 63.862595, 0)
+light_energy = 2.588
+light_size = 0.174
+light_specular = 4.724
+omni_range = 4096.0
+omni_attenuation = 0.3
 script = ExtResource("1_0pyiw")
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=1228899385]
@@ -1372,6 +1384,11 @@ shape = SubResource("BoxShape3D_kpsh6")
 [node name="seek" type="Node" parent="dragon_boid/head" unique_id=1140947167 node_paths=PackedStringArray("target")]
 script = ExtResource("8_uqts1")
 target = NodePath("../../../DefaultTarget")
+
+[node name="Area3D" type="Area3D" parent="dragon_boid/head" unique_id=1100799647 groups=["boidDragon"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/head/Area3D" unique_id=211113319 groups=["boidDragon"]]
+shape = SubResource("SphereShape3D_14l1l")
 
 [node name="torso1" type="CharacterBody3D" parent="dragon_boid" unique_id=462418827]
 
@@ -1540,6 +1557,11 @@ script = ExtResource("4_61od6")
 wait_time = 7.0
 autostart = true
 
+[node name="Area3D" type="Area3D" parent="DefaultTarget" unique_id=1603403949]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DefaultTarget/Area3D" unique_id=47241445]
+shape = SubResource("SphereShape3D_0pyiw")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=653963691]
 transform = Transform3D(1000, 0, 0, 0, 100.691, 0, 0, 0, 676.74835, 0, 0, 0)
 mesh = SubResource("PlaneMesh_vuu3o")
@@ -1558,3 +1580,4 @@ cam = NodePath(".")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.921817, 0, 1.7030599)
 
 [connection signal="timeout" from="DefaultTarget/Timer" to="DefaultTarget" method="_on_timer_timeout"]
+[connection signal="area_entered" from="DefaultTarget/Area3D" to="DefaultTarget" method="_on_area_3d_area_entered"]
