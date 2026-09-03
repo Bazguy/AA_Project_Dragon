@@ -63,6 +63,10 @@ sensors/enable_gravity=true
 sensors/enable_gyroscope=true
 sensors/enable_magnetometer=true
 
+[layer_names]
+
+3d_physics/layer_3="floor"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

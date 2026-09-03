@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dju75e4wnoo34"]
+
+[ext_resource type="PackedScene" uid="uid://cdchtu2judjd0" path="res://assets/Sheeeep.fbx" id="1_e0vie"]
+[ext_resource type="Script" uid="uid://cjfc37m37ejya" path="res://assets/sheep_target.gd" id="2_3twf3"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ahubx"]
+radius = 2.0
+
+[node name="Sheeeep" unique_id=2010260547 instance=ExtResource("1_e0vie")]
+script = ExtResource("2_3twf3")
+
+[node name="Area3D" type="Area3D" parent="." index="3" unique_id=232802234 groups=["targetPrio2"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1586835848 groups=["targetPrio2"]]
+shape = SubResource("SphereShape3D_ahubx")
