@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://dxlo553n72p76" path="res://assets/dragonChar_1.png" id="7_u7har"]
 [ext_resource type="Script" uid="uid://b3nvh0lkaktqa" path="res://detection_radius.gd" id="7_uqts1"]
 [ext_resource type="Script" uid="uid://c6qcl13ediy0a" path="res://seek.gd" id="8_uqts1"]
+[ext_resource type="Script" uid="uid://cjfc37m37ejya" path="res://assets/sheep_target.gd" id="11_14l1l"]
 [ext_resource type="Script" uid="uid://b6e2jtxsrbnux" path="res://avoidance.gd" id="11_us837"]
 [ext_resource type="Script" uid="uid://cs1sqa1tyg0dt" path="res://sheep_spawner.gd" id="13_uqts1"]
+[ext_resource type="AudioStream" uid="uid://dpkm8omlfivwc" path="res://dragon-studio-dragon-growl-364483.mp3" id="13_us837"]
+[ext_resource type="Script" uid="uid://cy765lexeqwfc" path="res://dragroar.gd" id="14_ykwv5"]
+[ext_resource type="AudioStream" uid="uid://dbw6dxbavi4kg" path="res://universfield-slime-impact-352473.mp3" id="15_nlk40"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2qqqv"]
 
@@ -1358,7 +1362,7 @@ collision_mask = 4
 shape = SubResource("BoxShape3D_u7har")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=124317916 node_paths=PackedStringArray("cam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 30, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
 environment = ExtResource("1_hr5et")
 attributes = SubResource("CameraAttributesPractical_6mfv6")
 script = ExtResource("2_bnlnp")
@@ -1372,10 +1376,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.10776, 25.666706)
 [node name="head" type="CharacterBody3D" parent="dragon_boid" unique_id=668557174]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.019, 2.75)
 script = ExtResource("5_0pyiw")
-speed = 3.0
-max_speed = 8.0
-max_force = 20
-damping = 0.01
+speed = 5.0
+banking = 0.5
 metadata/_custom_type_script = "uid://cv7glg5l7wbd5"
 
 [node name="head" type="Node3D" parent="dragon_boid/head" unique_id=1096370881]
@@ -1427,13 +1429,19 @@ shape = SubResource("BoxShape3D_kpsh6")
 script = ExtResource("8_uqts1")
 target = NodePath("../../../DefaultTarget")
 
-[node name="Area3D" type="Area3D" parent="dragon_boid/head" unique_id=1100799647 groups=["boidDragon"]]
+[node name="Area3D" type="Area3D" parent="dragon_boid/head" unique_id=1100799647 node_paths=PackedStringArray("drag", "default", "spawner", "aud") groups=["boidDragon"]]
+script = ExtResource("11_14l1l")
+drag = NodePath("../seek")
+default = NodePath("../../../DefaultTarget")
+spawner = NodePath("../../../SheepSpawner")
+aud = NodePath("../../squishSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/head/Area3D" unique_id=211113319 groups=["boidDragon"]]
 shape = SubResource("SphereShape3D_14l1l")
 
 [node name="avoidance" type="Node" parent="dragon_boid/head" unique_id=1980086795]
 script = ExtResource("11_us837")
+direction = 2
 
 [node name="torso1" type="CharacterBody3D" parent="dragon_boid" unique_id=462418827]
 
@@ -1607,9 +1615,29 @@ default = NodePath("../../DefaultTarget")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="dragon_boid/DetectionRadius" unique_id=1429991482 groups=["detecRange"]]
 shape = SubResource("SphereShape3D_u7har")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="dragon_boid" unique_id=674137191]
+stream = ExtResource("13_us837")
+volume_db = -6.567
+script = ExtResource("14_ykwv5")
+
+[node name="Timer" type="Timer" parent="dragon_boid/AudioStreamPlayer3D" unique_id=1640847257]
+wait_time = 12.0
+autostart = true
+
+[node name="squishSound" type="AudioStreamPlayer3D" parent="dragon_boid" unique_id=427214821]
+stream = ExtResource("15_nlk40")
+volume_db = -10.0
+
 [node name="SheepSpawner" type="Node3D" parent="." unique_id=1624196172]
 script = ExtResource("13_uqts1")
 
+[node name="Timer" type="Timer" parent="SheepSpawner" unique_id=45303415]
+wait_time = 5.0
+autostart = true
+
 [connection signal="timeout" from="DefaultTarget/Timer" to="DefaultTarget" method="_on_timer_timeout"]
 [connection signal="area_entered" from="DefaultTarget/Area3D" to="DefaultTarget" method="_on_area_3d_area_entered"]
+[connection signal="area_entered" from="dragon_boid/head/Area3D" to="dragon_boid/head/Area3D" method="_on_area_entered"]
 [connection signal="area_entered" from="dragon_boid/DetectionRadius" to="dragon_boid/DetectionRadius" method="_on_area_entered"]
+[connection signal="timeout" from="dragon_boid/AudioStreamPlayer3D/Timer" to="dragon_boid/AudioStreamPlayer3D" method="_on_timer_timeout"]
+[connection signal="timeout" from="SheepSpawner/Timer" to="SheepSpawner" method="_on_timer_timeout"]

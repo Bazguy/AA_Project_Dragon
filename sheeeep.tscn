@@ -2,14 +2,29 @@
 
 [ext_resource type="PackedScene" uid="uid://cdchtu2judjd0" path="res://assets/Sheeeep.fbx" id="1_e0vie"]
 [ext_resource type="Script" uid="uid://cjfc37m37ejya" path="res://assets/sheep_target.gd" id="2_3twf3"]
+[ext_resource type="Script" uid="uid://cy765lexeqwfc" path="res://dragroar.gd" id="3_3twf3"]
+[ext_resource type="AudioStream" uid="uid://b7m8ehavg82pw" path="res://dragon-studio-goat-baa-390303.mp3" id="3_ahubx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_ahubx"]
-radius = 2.0
+radius = 3.0
 
 [node name="Sheeeep" unique_id=2010260547 instance=ExtResource("1_e0vie")]
 script = ExtResource("2_3twf3")
 
 [node name="Area3D" type="Area3D" parent="." index="3" unique_id=232802234 groups=["targetPrio2"]]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1586835848 groups=["targetPrio2"]]
 shape = SubResource("SphereShape3D_ahubx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="4" unique_id=532504631]
+stream = ExtResource("3_ahubx")
+volume_db = -15.0
+script = ExtResource("3_3twf3")
+
+[node name="Timer" type="Timer" parent="AudioStreamPlayer3D" index="0" unique_id=1178661665]
+wait_time = 7.0
+autostart = true
+
+[connection signal="timeout" from="AudioStreamPlayer3D/Timer" to="AudioStreamPlayer3D" method="_on_timer_timeout"]

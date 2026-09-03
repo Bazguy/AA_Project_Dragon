@@ -5,17 +5,17 @@
 
 [node name="dragonChar" unique_id=2026423991 instance=ExtResource("1_lkyim")]
 
-[node name="head" parent="Dragon" parent_id_path=PackedInt32Array(1590114493) index="0" unique_id=2002535667]
+[node name="head" parent="Dragon" parent_id_path=PackedInt32Array(1280104655) index="0" unique_id=2092021369]
 script = ExtResource("2_lr15e")
 
-[node name="rightArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(46844927) index="0" unique_id=260044886]
+[node name="rightArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(1247402650) index="0" unique_id=2008342178]
 transform = Transform3D(1, 0, 0, 0, 0.5372996, -0.8433915, 0, 0.8433915, 0.5372996, -0.9375, -0.5625, -0.4375)
 
-[node name="leftArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(46844927) index="1" unique_id=2010778325]
+[node name="leftArm" parent="Dragon/torso/arms" parent_id_path=PackedInt32Array(1247402650) index="1" unique_id=433191205]
 transform = Transform3D(1, 0, 0, 0, 0.81915194, 0.57357633, 0, -0.57357633, 0.81915194, 0.9375, -0.5625, -0.4375)
 
-[node name="leftLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(1221624236) index="0" unique_id=16979819]
+[node name="leftLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(134589053) index="0" unique_id=677263223]
 transform = Transform3D(1, 0, 0, 0, 0.5372996, -0.8433915, 0, 0.8433915, 0.5372996, 0.875, -0.6, -5.3125)
 
-[node name="rightLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(1221624236) index="1" unique_id=752312176]
+[node name="rightLeg" parent="Dragon/torso2/legs" parent_id_path=PackedInt32Array(134589053) index="1" unique_id=1121845693]
 transform = Transform3D(1, 0, 0, 0, 0.81915194, 0.57357633, 0, -0.57357633, 0.81915194, -0.875, -0.6, -5.3125)

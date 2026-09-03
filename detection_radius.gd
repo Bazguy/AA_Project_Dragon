@@ -4,7 +4,7 @@ extends Area3D
 
 @export var default: Node3D
 var sheep: Node3D
-var hunting: bool = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,10 +18,7 @@ func _process(delta: float) -> void:
 
 
 func _on_area_entered(area: Area3D) -> void:
-	if(area.is_in_group("targetPrio1")):
-		print("target prio 1 detected")
-	if(area.is_in_group("targetPrio2") && hunting == false):
-		#drag.seek.target = area
+	if(area.is_in_group("targetPrio2")):
 		drag.target = area
 		print("sheeeeeeep!")
 		

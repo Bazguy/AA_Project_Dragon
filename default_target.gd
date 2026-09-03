@@ -1,15 +1,10 @@
 extends Marker3D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-@export var radius = 100
 var origPos:Vector3
 
 func moveTarget():
-	var new_target = Vector3(randf_range(-15, 15), randf_range(20, 60), randf_range(-15, 15))
+	var new_target = Vector3(randf_range(-7, 7), randf_range(5, 15), randf_range(-7, 7))
 	global_transform.origin = new_target
 	
 	print("position change!", global_transform.origin)
